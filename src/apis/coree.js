@@ -12,22 +12,23 @@ export const axiosInstance = axios.create({
 const getdata = async ({ lat, lon }) => {
   const res = await axiosInstance.get(`&lat=${lat}&lon=${lon}8&units=metric`);
   return console.log(res.data);
+  // return res.data;
 };
 
 export const Api = {
   getdata,
 };
 
-const Page2 = () => {
-  useEffect(() => {
-    getdata({
-      lat: 37.5683,
-      lon: 126.9778,
-    });
-  }, []);
-  return <>didi</>;
-};
-export default Page2;
+// const Page2 = () => {
+//   useEffect(() => {
+//     getdata({
+//       lat: 37.5683,
+//       lon: 126.9778,
+//     });
+//   }, []);
+//   return <>didi</>;
+// };
+// export default Page2;
 
 // 오 일단 설정값으로 부르니 데이터는 불러와진다
 /* 

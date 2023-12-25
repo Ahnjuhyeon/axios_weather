@@ -7,7 +7,7 @@ import MainPage from "./pages";
 function App() {
   // return <Page />;
   // return <Page2 />;
-  return <MainPage></MainPage>;
+  return <MainPage />;
 }
 
 export default App;
