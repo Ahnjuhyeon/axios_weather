@@ -11,8 +11,8 @@ export const axiosInstance = axios.create({
 //&lat=37.5683&lon=126.9778&units=metric
 const getdata = async ({ lat, lon }) => {
   const res = await axiosInstance.get(`&lat=${lat}&lon=${lon}8&units=metric`);
-  return console.log(res.data);
-  // return res.data;
+  console.log(res.data);
+  return res.data;
 };
 
 export const Api = {
