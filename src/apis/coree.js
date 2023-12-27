@@ -18,7 +18,9 @@ const getdata = async ({ lat, lon }) => {
 export const Api = {
   getdata,
 };
+/*
 
+*/
 // const Page2 = () => {
 //   useEffect(() => {
 //     getdata({
