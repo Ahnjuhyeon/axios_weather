@@ -36,7 +36,6 @@ const SEOUL = () => {
   console.log(sunriseDate);
   return (
     <Wrapper>
-      {/* <img src={sky} /> */}
       <h1>SEOUL</h1>
       <Shadowbox>
         <CurrentTimePage />
@@ -73,10 +72,11 @@ const Wrapper = styled.div`
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 
   & > h1 {
-    margin: 0;
+    font-size: 66px;
+    text-shadow: 5px 6px 10px grey;
   }
 `;
 
@@ -87,6 +87,7 @@ const Shadowbox = styled.div`
   margin: 0 auto;
   font-size: 77px;
   padding: 10px 0;
+  box-shadow: 5px 6px 9px rgba(0, 0, 0, 0.3);
   & > div > div > p {
     font-size: 24px;
     /* font-weight: 400; */
@@ -105,4 +106,6 @@ const Tempbox = styled.div`
     margin: 0;
   }
   font-size: 24px;
+  padding: 50px 0;
+  text-shadow: 5px 6px 10px grey;
 `;
