@@ -31,3 +31,14 @@ const Page = () => {
 };
 
 export default Page;
+/*
+
+const res = await axiosInstance.get(&lat=${lat}&lon=${lon}8&units=metric);
+axiosInstance.get('/', {
+ parmas: {
+   lat,
+   lon
+   units:metric
+ }
+})
+*/

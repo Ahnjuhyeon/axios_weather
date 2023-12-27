@@ -53,4 +53,18 @@ axios연결
 디자인 구성 했으면 자료 화면에 띄우기 
 
 
+
+==========================================================================
+
+
+
+const res = await axiosInstance.get(&lat=${lat}&lon=${lon}8&units=metric);
+axiosInstance.get('/', {
+ parmas: {
+   lat,
+   lon
+   units:metric
+ }
+})
+
 */

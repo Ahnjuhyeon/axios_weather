@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Api } from "../../apis/coree";
 import CurrentTimePage from "../../component/correntTime";
 import styled from "styled-components";
-import sky from "../../images/white-sky.jpg";
+import sky from "../../images/blue-sky.png";
 
 const SEOUL = () => {
   const [weatherData, setWeatherData] = useState(null);
@@ -41,12 +41,12 @@ const SEOUL = () => {
       <Shadowbox>
         <CurrentTimePage />
       </Shadowbox>
-      <div>
+      <Tempbox>
         <p>{weatherData.main.temp}°</p>
         <span>최고:{weatherData.main.temp_max}°</span>
         <span>최저:{weatherData.main.temp_min}°</span>
         <span>체감:{weatherData.main.feels_like}°</span>
-      </div>
+      </Tempbox>
       <Shadowbox>
         <Flexbox>
           <div>
@@ -68,12 +68,13 @@ const Wrapper = styled.div`
   height: 100vh;
   background-image: url(${sky});
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
   color: #fff;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   & > h1 {
     margin: 0;
   }
@@ -81,12 +82,14 @@ const Wrapper = styled.div`
 
 const Shadowbox = styled.div`
   background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 40px;
-  width: 579px;
+  border-radius: 30px;
+  width: 520px;
   margin: 0 auto;
-  font-size: 88px;
+  font-size: 77px;
+  padding: 10px 0;
   & > div > div > p {
-    font-size: 28px;
+    font-size: 24px;
+    /* font-weight: 400; */
   }
 `;
 const Flexbox = styled.div`
@@ -94,4 +97,12 @@ const Flexbox = styled.div`
   justify-content: space-between;
   padding: 0 80px;
   text-align: left;
+`;
+
+const Tempbox = styled.div`
+  & > p {
+    font-size: 77px;
+    margin: 0;
+  }
+  font-size: 24px;
 `;
