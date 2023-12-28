@@ -3,22 +3,31 @@ import { Api } from "../../apis/coree";
 import CurrentTimePage from "../../component/correntTime";
 import styled from "styled-components";
 import sky from "../../images/blue-sky.png";
+import { useQuery } from "react-query";
 
 const SEOUL = () => {
-  const [weatherData, setWeatherData] = useState(null);
-  const [sunrise, setSunrise] = useState("");
-  const [sunset, setSunset] = useState("");
+  // const [weatherData, setWeatherData] = useState(null);
   // 예외처리 if(data) {} => 아래 이펙트 리액트쿼리로 바꿔보기
-  useEffect(() => {
+  //weatherData
+  const { data: weatherData } = useQuery(["getTodo"], () =>
     Api.getdata({
       lat: 37.5683,
       lon: 126.9778,
-    }).then((data) => {
-      console.log("데이터가 성공적으로 가져와졌습니다:", data);
-      // 데이터를 가지고오는걸 성공했다면 setWeatherData에 저장 => 그럼 초기값으로 또 저장
-      setWeatherData(data);
-    });
-  }, []);
+    })
+  );
+  console.log(weatherData);
+  //꺄 보내졌다아아아아아ㅏ아아아아아아아아아아아ㅏ 짞!짞!짞!짞!짞
+  // 바꿧다.. 바꿧어 아이고...
+  // useEffect(() => {
+  //   Api.getdata({
+  //     lat: 37.5683,
+  //     lon: 126.9778,
+  //   }).then((data) => {
+  //     console.log("데이터가 성공적으로 가져와졌습니다:", data);
+  //     // 데이터를 가지고오는걸 성공했다면 setWeatherData에 저장 => 그럼 초기값으로 또 저장
+  //     setWeatherData(data);
+  //   });
+  // }, []);
   // 데이터가 아직 없을 때의 처리
   if (!weatherData) {
     return <p>Loading...</p>;
@@ -41,10 +50,10 @@ const SEOUL = () => {
         <CurrentTimePage />
       </Shadowbox>
       <Tempbox>
-        <p>{weatherData.main.temp}°</p>
-        <span>최고:{weatherData.main.temp_max}°</span>
-        <span>최저:{weatherData.main.temp_min}°</span>
-        <span>체감:{weatherData.main.feels_like}°</span>
+        <p>{Math.round(weatherData.main.temp)}°</p>
+        <span>최고:{Math.round(weatherData.main.temp_max)}°</span>
+        <span>최저:{Math.round(weatherData.main.temp_min)}°</span>
+        <span>체감:{Math.round(weatherData.main.feels_like)}°</span>
       </Tempbox>
       <Shadowbox>
         <Flexbox>
