@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
 import { Api } from "../../apis/coree";
 import CurrentTimePage from "../../component/correntTime";
-import styled from "styled-components";
-import sky from "../../images/blue-sky.png";
 import { useQuery } from "react-query";
+import ButtonPage from "../../component/button";
+import { S } from "./style";
 
 const SEOUL = () => {
   // const [weatherData, setWeatherData] = useState(null);
@@ -44,19 +43,19 @@ const SEOUL = () => {
 
   console.log(sunriseDate);
   return (
-    <Wrapper>
+    <S.Wrapper>
       <h1>SEOUL</h1>
-      <Shadowbox>
+      <S.Shadowbox>
         <CurrentTimePage />
-      </Shadowbox>
-      <Tempbox>
+      </S.Shadowbox>
+      <S.Tempbox>
         <p>{Math.round(weatherData.main.temp)}°</p>
         <span>최고:{Math.round(weatherData.main.temp_max)}°</span>
         <span>최저:{Math.round(weatherData.main.temp_min)}°</span>
         <span>체감:{Math.round(weatherData.main.feels_like)}°</span>
-      </Tempbox>
-      <Shadowbox>
-        <Flexbox>
+      </S.Tempbox>
+      <S.Shadowbox>
+        <S.Flexbox>
           <div>
             <p>습도:{weatherData.main.humidity}%</p>
             <p>풍속:{weatherData.wind.speed}m/s</p>
@@ -65,56 +64,17 @@ const SEOUL = () => {
             <p>일출: {sunriseDate.toLocaleTimeString("en-US")}</p>
             <p>일몰:{sunsetDate.toLocaleTimeString("en-US")} </p>
           </div>
-        </Flexbox>
-      </Shadowbox>
-    </Wrapper>
+        </S.Flexbox>
+      </S.Shadowbox>
+      <S.ButtonBox>
+        <ButtonPage size="small" variant="primary">
+          Prev
+        </ButtonPage>
+        <ButtonPage size="small" variant="primary">
+          Next
+        </ButtonPage>
+      </S.ButtonBox>
+    </S.Wrapper>
   );
 };
 export default SEOUL;
-
-const Wrapper = styled.div`
-  height: 100vh;
-  background-image: url(${sky});
-  background-size: cover;
-  background-position: bottom;
-  color: #fff;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  /* justify-content: space-between; */
-
-  & > h1 {
-    font-size: 66px;
-    text-shadow: 5px 6px 10px grey;
-  }
-`;
-
-const Shadowbox = styled.div`
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 30px;
-  width: 520px;
-  margin: 0 auto;
-  font-size: 77px;
-  padding: 10px 0;
-  box-shadow: 5px 6px 9px rgba(0, 0, 0, 0.3);
-  & > div > div > p {
-    font-size: 24px;
-    /* font-weight: 400; */
-  }
-`;
-const Flexbox = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 0 80px;
-  text-align: left;
-`;
-
-const Tempbox = styled.div`
-  & > p {
-    font-size: 77px;
-    margin: 0;
-  }
-  font-size: 24px;
-  padding: 50px 0;
-  text-shadow: 5px 6px 10px grey;
-`;
